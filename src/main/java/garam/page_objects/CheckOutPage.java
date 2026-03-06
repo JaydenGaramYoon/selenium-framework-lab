@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -26,6 +27,9 @@ public class CheckOutPage extends AbstractComponent {
 	@FindBy(css = "a[class*='submit']")
 	WebElement placeOrderBtn;
 	
+	@FindBy(css = "[placeholder='Select Country']")
+	WebElement country;
+
 	@FindBy(css = "button[class*='inserted']")
 	WebElement selectCountry;
 	
@@ -33,6 +37,13 @@ public class CheckOutPage extends AbstractComponent {
 	By selectCountryLocator = By.cssSelector("button[class*='inserted']");
 	By placeOrderBtnLocator = By.cssSelector("a[class*='submit']");
 	By orderCompletionLogoLocator = By.cssSelector("h1[class*='hero-primary']");
+	
+//	public void selectCountry(String countryName)
+//	{
+//		Actions a = new Actions(driver);
+//		country.sendKeys(countryName);
+//		a.sendKeys(country, countryName).build().perform();
+//	}
 	
 	public OrderHistoryPage checkOut() {
 		waitForElementToAppear(infoInputLocator);
